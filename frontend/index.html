@@ -1,12 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" class="h-100">
 <head>
-<title>Hello World!</title>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="DIGITAL SIGN, TELETON, VERIFY DOCUMENTS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web-base multi digital signature tool">
+    <meta name="author" content="Kaco">
+    <base href="./resources/" target="_blank">
+
+
+    <!-- CSS style -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+
+    <!-- Favicons-->
+    <link rel="icon" href="static/icons/teleton-31x26.png" sizes="32x32" type="image/png">
+    <meta name="theme-color" content="#7952b3">
+    
+    <!-- Title -->
+    <title>Hermes</title>
 </head>
-<body>
 
-<h1>Hello world!</h1>
-<p>This is the first file in my new Git Repo.</p>
 
+<body class="w3-cell-row">
+    <!-- All upper part of web (hiddes when small devices)-->
+    <main class="main-box w3-row w3-hide-small" role="main" id="main">
+        <!-- Left image-->
+        <div class="main-image-box w3-padding-32 w3-twothird w3-container" style="padding-left: 0px; padding-top: 0px !important;">
+            <div class="logo-box ">
+                <img id="main-img" src="static/img/nodemap2.png" alt="Hermes main picture: A modern art" >
+            </div>
+        </div>
+
+        <!-- Login menu-->
+        <div class="main-menu-box w3-container w3-third w3-center w3-padding-64">
+            <div class="menu-box w3-container w3-cell">
+                <div class="header-menu">
+                    <div class="logo-menu-box">
+                        <img id="main-img" src="static/icons/teleton-100x84.png" alt="Hermes main picture: A modern art" >
+                    </div>
+                </div>
+                <div class="menu-text-box">
+                    <div class="main-msg">
+                        <h1 class="menu-msg-style">La firma del manana</h1>
+                    </div>
+                    <div class="scnd-msg-box">
+                        <h3 class="scnd-msg">Entra hoy a Hermes</h3>
+                    </div>
+                </div>
+                <!-- Login box-->
+                <div class="login-box w3-light-grey">
+                    <div class="header-login-box">
+                        <div class="header-msg-box">
+                            <h5> Inicio de sesion</h5>
+                        </div>
+                    </div>
+                    <form class="login-box" method="POST" action="/accounts/login/">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="jjUYvfS8uAwWY40uhIGgyoF4g2NMBhnUKTDOuRHbiJfKFHEO5l9hWEYtA9xiBdKv">
+                        <div class="user-login-box"> 
+                          <!-- Username input-->
+                          <p>
+                            <label for="id_login">Username:</label>
+                            <input type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required="" id="id_login">
+                          </p>
+                        </div>
+                        <div class="pass-login-box">
+                          <!-- Password box for sign-in -->
+                          <p>
+                            <label for="id_password">Password:</label>
+                            <input class="holder-pass" type="password" name="password" placeholder="Password" autocomplete="current-password" required="" id="id_password">
+                          </p>
+                        </div>
+                        <div class="remember-login-box">
+                          <!-- Remember button for sign-in next time -->
+                          <p>
+                            <label for="id_remember">Remember Me:</label>
+                            <input type="checkbox" name="remember" id="id_remember">      
+                          </p>
+                        </div>
+                        <div class="button-sign-in">
+                          <input type="hidden" name="next" value="/">
+                          
+                          <button class="primaryAction" type="submit">Sign In</button>
+                          <a class="button secondaryAction" href="/accounts/password/reset/">Forgot Password?</a>
+                        </div>
+                        <div class="forgotp-login-box">
+                          <!-- Forgot password section -->
+                          
+                        </div>
+                      </form>
+                      <div class="login-button-box w3-container w3-padding-32 w3-light-grey">
+                        <button href="../menu.html" class="w3-btn button-style w3-round-xxlarge w3-xlarge">Entrar</button>
+                    </div>
+                    </div>
+                    
+
+                    <!-- Registro-->
+                    <div class="register-box w3-container w3-light-grey w3-cell-row">
+                        <div class="register-msg w3-container w3-half">
+                            <a href="#">Registrarme</a>
+                        </div>
+                        <div class="passwd-reset-box w3-container w3-half">
+                            <a href="#">Olvide mi contrasena</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lower bar menu-->
+    <footer class="footer-box">
+
+    </footer>
 </body>
-</html> 
+</html>
