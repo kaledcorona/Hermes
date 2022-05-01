@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <!-- Favicons-->
-    <link rel="icon" href="#" sizes="16x16" type="image/png">
+    <link rel="icon" href="static/icons/teleton-31x26.png" sizes="32x32" type="image/png">
     <meta name="theme-color" content="#7952b3">
     
     <!-- Title -->
@@ -25,11 +25,11 @@
 </head>
 
 
-<body class="w3-black">
+<body class="w3-cell-row">
     <!-- Sidebar hidden on small screens -->
     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
         <!-- Logo image in top left corner -->
-        <img src="static/img/koro.jpeg" style="width: 100%;">
+        <img id="profile-img" src="static/icons/teleton-100x84-black.png" alt="Teleton logo yellow" style="width: 100%;">
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
             <i class="fa fa-home w3-xxlarge"></i>
             <p>Herramientas</p>
@@ -68,22 +68,29 @@
     </nav>
 
     <!-- Page content -->
-    <div class="w3-padding-large" id="main">
-        <!-- Home -->
-        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-            <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Kaco.</h1>
-            <p>web designer</p>
-            <img src="static/img/main-pic.jpeg" alt="main pic" class="w3-image" width="992" height="1108">
+    <div class="w3-padding-large w3-cell-row" id="main">
+        <!-- Firmar -->
+        <header class="w3-padding-32 w3-center w3-cell w3-half" id="home">
+            <h1 class="w3-jumbo">Firma</h1>
+            <form action="#" method="post" >
+                <label for="gfile">Seleccione el archivo</label>
+                <input type="file" id="gfile" name="gfile"><br><br>
+                <label for="gpassword">Ingrese su contrasena</label><br>
+                <input type="text" id="gpassword" name="gpsswd"><br>
+                <input type="submit" value="Submit">
+            </form>
         </header>
 
-        <!-- About Section -->
-        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-            <h2 class="w3-text-light-grey">My Name</h2>
-            <hr style="width:200px" class="w3-opacity">
-            <p> holaaaaa</p>
-            <button class="w3-button w3-light-grey w3-padding-large w3-section">
-                <i class="fa fa-download"></i> Download Resume
-            </button>
+        <!-- Verificar -->
+        <div class="w3-padding-32 w3-center w3-cell w3-half" id="about">
+            <header class="w3-container w3-padding-32 w3-center w3-cell" id="home">
+                <h1 class="w3-jumbo">Verifica</h1>
+                <form action="#" method="post" >
+                    <label for="vfile">Seleccione el archivo a verificar</label>
+                    <input type="file" id="vfile" name="vfile"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </header>
         </div>
     </div>
 </body>
