@@ -42,9 +42,26 @@ body{
     margin-left: 120px;
 }
 
-/*Remove margins from the page content on small screens*/
+
 @media only screen and (max-width: 600px) {
+    /*Remove margins from the page content on small screens*/
     #main {
         margin-left: 0px;
     }
+
+    .menu-box{
+        position: relative;
+        width: 100%;
+
+    }
+
+    .login-box {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .register-box{ 
+        height: 2vh;
+    }
+
 }

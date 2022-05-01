@@ -28,6 +28,7 @@ body{
     font-weight: 720;
     color: var(--primary-text)
   }
+
   
   h4,h5{
     font-weight: 500;
@@ -42,6 +43,11 @@ body{
   width: 63.7% !important;
 }
 
+.ayellow {
+  color: var(--terciary-color);
+  font-weight: 500;
+  text-decoration: none;
+}
 
 /*Menu configurations*/
 
@@ -53,6 +59,12 @@ body{
   height: 100%;
 }
 
+.logo-menu-box{
+  position: relative;
+  bottom: 0vh;
+  left: 8vw;
+}
+
 #main-img {
   position: relative;
   max-width: 100%;
@@ -60,17 +72,49 @@ body{
 
 }
 
+
+/* Right part: login box*/
+
 .menu-box{
   position: relative;
-  top: 70px;
+  top: 90px;
+}
+
+.login-box{
+  position: relative;
+  top: 20px;
 }
 
 
+.display-topright{
+  position: absolute;
+  right: 0px;
+  bottom: 540px;
+}
 
+.menu-msg-style{
+  font-size: 2.3vw;
+}
 
+#user_id {
+  position: relative;
+  left: 1vw;
+}
 
+#password_id {
+  position: relative;
+  left: 0.1vw;
+}
 
+#id_remember {
+  position: relative;
+  right: 0vw;
+}
 
+.remember-login-box {
+  position: relative;
+  right: 5.0vw;
+}
 
 .button-style{
   background-color: var(--secondary-color) !important;
@@ -78,5 +122,34 @@ body{
 }
 
 .register-box{
+  position: relative;
+  width: 100%;
+  height: 6vh;
   margin-top: 30px;
 }
+
+.register-msg{
+  position: relative;
+  top: 2vh;
+}
+
+
+
+.passwd-reset-box{
+  position: relative;
+  top: 2vh;
+}
+
+/* Footer configurations*/
+
+.footer-box{
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: #fcfbf4;
+}
+
+.link-footer {
+  position: relative;
+  top: 14px;
+  font-size: 75%;
+} 
