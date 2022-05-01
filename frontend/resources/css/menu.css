@@ -1,0 +1,50 @@
+/* CSS configurations written by: kaco*/
+
+/*Global configurations*/
+
+body{
+    /* Font configurations*/
+    font-family: 'sans-serif', sans-serif;
+
+    /* Background color*/
+    /* background: var(--primary-DEFAULT) none repeat scroll 0% 0%; */
+  
+    /*Color theme*/
+    --primary-DEFAULT:      #fbfdfe;
+    --secondary-color:      #EEC900;
+    --terciary-color:       #0f1419;
+    --primary-text:         #0f1419;
+    --primary-text-light:   #6c6c6c;  
+  
+  }
+  
+  /* Font parameters*/
+  h1,h2,h3{
+    font-weight: 720;
+    color: var(--primary-text)
+  }
+  
+  h4,h5{
+    font-weight: 500;
+    color: var(--primary-text)
+}
+
+.w3-row-padding img {
+    margin-bottom: 12px;
+}
+
+.w3-sidebar {
+    width: 120px;
+    background-color: #222;
+}
+
+#main {
+    margin-left: 120px;
+}
+
+/*Remove margins from the page content on small screens*/
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-left: 0px;
+    }
+}
