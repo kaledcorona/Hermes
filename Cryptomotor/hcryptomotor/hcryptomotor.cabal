@@ -83,7 +83,6 @@ library
         curve25519 ^>=0.2.6,
         tuple,
         cprng-aes,
-        cryptocipher,
         cryptohash,
         text
 
@@ -128,7 +127,6 @@ executable hcryptomotor
         curve25519 ^>=0.2.6,
         tuple,
         cryptohash,
-        cryptocipher,
         cprng-aes,
         hcryptomotor
 

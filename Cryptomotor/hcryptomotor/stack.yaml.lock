@@ -18,13 +18,6 @@ packages:
       sha256: 0da6a58dff753dc6d707b5d1e25b68c7f80c52661529f0637c3c0d83ba73d269
   original:
     hackage: cryptocipher-0.6.2@sha256:b24531e611baf5db5130e056ac8c619b94fce1a7807d97faad4c609fe2abb70b,1103
-- completed:
-    hackage: cipher-blowfish-0.0.3@sha256:aa8fddef17ba57c2ef31f335ab474f16dfa106f903c257b16f6f578c07957406,1932
-    pantry-tree:
-      size: 421
-      sha256: 59b4f1e339cd0eb82f66808a152b6bd4c0fad2ad7315c3504373d79d294cac2b
-  original:
-    hackage: cipher-blowfish-0.0.3@sha256:aa8fddef17ba57c2ef31f335ab474f16dfa106f903c257b16f6f578c07957406,1932
 snapshots:
 - completed:
     size: 590100
