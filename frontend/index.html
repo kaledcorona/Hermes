@@ -35,60 +35,45 @@
         </div>
 
         <!-- Login menu-->
-        <div class="main-menu-box w3-container w3-third w3-center w3-padding-64">
+        <div class="main-menu-box w3-container w3-third w3-center w3-padding-64 w3-display-container">
             <div class="menu-box w3-container w3-cell">
                 <div class="header-menu">
                     <div class="logo-menu-box">
-                        <img id="main-img" src="static/icons/teleton-100x84.png" alt="Hermes main picture: A modern art" >
+                        <img id="img-logo" src="static/icons/teleton-hermes.png" alt="Hermes main picture: A modern art" >
                     </div>
                 </div>
                 <div class="menu-text-box">
                     <div class="main-msg">
-                        <h1 class="menu-msg-style">La firma del manana</h1>
+                        <h1 class="menu-msg-style">La firma del manaña</h1>
                     </div>
                     <div class="scnd-msg-box">
-                        <h3 class="scnd-msg">Entra hoy a Hermes</h3>
+                        <h3 class="scnd-msg">Entra a Hermes</h3>
                     </div>
                 </div>
                 <!-- Login box-->
-                <div class="login-box w3-light-grey">
+                <div class="login-box w3-light-grey w3-padding-16">
                     <div class="header-login-box">
                         <div class="header-msg-box">
-                            <h5> Inicio de sesion</h5>
+                            <h4> Inicio de sesión</h4>
                         </div>
                     </div>
-                    <form class="login-box" method="POST" action="/accounts/login/">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="jjUYvfS8uAwWY40uhIGgyoF4g2NMBhnUKTDOuRHbiJfKFHEO5l9hWEYtA9xiBdKv">
+                    <form class="login-box" method="post" action="/accounts/login/">
                         <div class="user-login-box"> 
                           <!-- Username input-->
-                          <p>
-                            <label for="id_login">Username:</label>
-                            <input type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required="" id="id_login">
-                          </p>
+                            <label for="user"> Usuario:</label>
+                            <input type="text" id="user_id" name="user" placeholder="Usuario" autocomplete="on" maxlength="150" required="">
                         </div>
                         <div class="pass-login-box">
                           <!-- Password box for sign-in -->
                           <p>
-                            <label for="id_password">Password:</label>
-                            <input class="holder-pass" type="password" name="password" placeholder="Password" autocomplete="current-password" required="" id="id_password">
+                            <label for="password">Constraseña:</label>
+                            <input class="holder-pass" type="password" name="password" placeholder="Password" autocomplete="off" required="" id="password_id">
                           </p>
                         </div>
-                        <div class="remember-login-box">
+                        <div class="remember-login-box w3-padding-16">
                           <!-- Remember button for sign-in next time -->
-                          <p>
                             <label for="id_remember">Remember Me:</label>
                             <input type="checkbox" name="remember" id="id_remember">      
-                          </p>
-                        </div>
-                        <div class="button-sign-in">
-                          <input type="hidden" name="next" value="/">
-                          
-                          <button class="primaryAction" type="submit">Sign In</button>
-                          <a class="button secondaryAction" href="/accounts/password/reset/">Forgot Password?</a>
-                        </div>
-                        <div class="forgotp-login-box">
-                          <!-- Forgot password section -->
-                          
                         </div>
                       </form>
                       <div class="login-button-box w3-container w3-padding-32 w3-light-grey">
@@ -98,12 +83,12 @@
                     
 
                     <!-- Registro-->
-                    <div class="register-box w3-container w3-light-grey w3-cell-row">
-                        <div class="register-msg w3-container w3-half">
-                            <a href="#">Registrarme</a>
+                    <div class="register-box w3-container w3-light-grey w3-cell-row w3-center w3-display-container">
+                        <div class="register-msg w3-half ">
+                            <a href="../menu.html" class="ayellow" >Registrarme</a>
                         </div>
                         <div class="passwd-reset-box w3-container w3-half">
-                            <a href="#">Olvide mi contrasena</a>
+                            <a href="#" class="ayellow" >Recuperar contrasena</a>
                         </div>
                     </div>
                 </div>
@@ -111,9 +96,86 @@
         </div>
     </main>
 
-    <!-- Lower bar menu-->
-    <footer class="footer-box">
 
+    <!-- Lower bar menu-->
+    <footer class="footer-box w3-cell-row w3-hide-small w3-center">
+        <div class="w3-container w3-cell">
+            <a class="link-footer" href="#">Acerca</a> 
+        </div>
+        <div class="w3-container w3-cell">
+            <a  class="link-footer" href="#">Ayuda</a> 
+        </div>
+        <div class="w3-container w3-cell">
+            <a class="link-footer" href="#">Privacidad</a> 
+        </div>
+        <div class="w3-container w3-cell">
+            <p style="font-size: 75%;"> Disenada por Tec de Monterrey IDM20</p>
+        </div>
     </footer>
+
+    <!--All upper part of web (hiddes when large and medium devices)-->
+    <main class="main-box_mobile w3-row w3-hide-medium w3-hide-large" role="main" id="main_mobile">
+        <!-- Navbar on small screens (Hidden on Medium and large screens) -->
+        <nav class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+            <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+                <a href="#" class="w3-bar-item w3-button" style="width: 20% !important;"><img src="static/icons/teleton-31x26.png" id="img-logo-nav"></a>
+                <a href="#" class="w3-bar-item w3-button" style="width: 26% !important;">Registro</a>
+                <a href="#" class="w3-bar-item w3-button" style="width: 27% !important;  position: relative; right: 2vw;">Recuperar</a>
+                <a href="#" class="w3-bar-item w3-button" id="recuperar_nav" style="width: 27% !important; position: relative; right: 6vw;">Acerca</a>
+            </div>
+        </nav>
+        <!-- Login menu-->
+        <div class="main-menu-box w3-container w3-third w3-center w3-padding-64 w3-display-container">
+            <div class="menu-box w3-cell">
+                <div class="header-menu">
+                    <div class="logo-menu-box w3-middle">
+                        <img id="img-logo" src="static/icons/teleton-100x84.png" alt="Teleton logo yellow" >
+                    </div>
+                </div>
+                <!-- Login box-->
+                <div class="login-box w3-light-grey w3-padding-16">
+                    <div class="header-login-box">
+                        <div class="header-msg-box">
+                            <h4> Inicio de sesión</h4>
+                        </div>
+                    </div>
+                    <form class="login-box" method="post" action="/accounts/login/">
+                        <div class="user-login-box"> 
+                          <!-- Username input-->
+                            <label for="user"> Usuario:</label>
+                            <input type="text" id="user_id" name="user" placeholder="Usuario" autocomplete="on" maxlength="150" required="">
+                        </div>
+                        <div class="pass-login-box">
+                          <!-- Password box for sign-in -->
+                          <p>
+                            <label for="password">Constraseña:</label>
+                            <input class="holder-pass" type="password" name="password" placeholder="Password" autocomplete="off" required="" id="password_id">
+                          </p>
+                        </div>
+                        <div class="remember-login-box w3-padding-16">
+                          <!-- Remember button for sign-in next time -->
+                            <label for="id_remember">Remember Me:</label>
+                            <input type="checkbox" name="remember" id="id_remember">      
+                        </div>
+                      </form>
+                      <div class="login-button-box w3-container w3-padding-32 w3-light-grey">
+                        <button href="../menu.html" class="w3-btn button-style w3-round-xxlarge w3-xlarge">Entrar</button>
+                    </div>
+                    </div>
+                    
+
+                    <!-- Registro-->
+                    <div class="register-box w3-container w3-cell-row w3-light-grey w3-cell-row w3-center w3-display-container">
+                        <div class="register-msg w3-half ">
+                            <a href="#" class="ayellow" >Registrarme</a>
+                        </div>
+                        <div class="passwd-reset-box w3-container w3-half">
+                            <a href="#" class="ayellow" >Recuperar contrasena</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
