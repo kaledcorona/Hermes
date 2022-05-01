@@ -99,49 +99,27 @@
   (major1) == 1 && (major2) == 3 && (minor) <= 5)
 #endif /* MIN_VERSION_conduit_extra */
 
-/* package cprng-aes-0.6.1 */
-#ifndef VERSION_cprng_aes
-#define VERSION_cprng_aes "0.6.1"
-#endif /* VERSION_cprng_aes */
-#ifndef MIN_VERSION_cprng_aes
-#define MIN_VERSION_cprng_aes(major1,major2,minor) (\
+/* package cryptonite-0.29 */
+#ifndef VERSION_cryptonite
+#define VERSION_cryptonite "0.29"
+#endif /* VERSION_cryptonite */
+#ifndef MIN_VERSION_cryptonite
+#define MIN_VERSION_cryptonite(major1,major2,minor) (\
   (major1) <  0 || \
-  (major1) == 0 && (major2) <  6 || \
-  (major1) == 0 && (major2) == 6 && (minor) <= 1)
-#endif /* MIN_VERSION_cprng_aes */
+  (major1) == 0 && (major2) <  29 || \
+  (major1) == 0 && (major2) == 29 && (minor) <= 0)
+#endif /* MIN_VERSION_cryptonite */
 
-/* package crypto-api-0.13.3 */
-#ifndef VERSION_crypto_api
-#define VERSION_crypto_api "0.13.3"
-#endif /* VERSION_crypto_api */
-#ifndef MIN_VERSION_crypto_api
-#define MIN_VERSION_crypto_api(major1,major2,minor) (\
+/* package memory-0.15.0 */
+#ifndef VERSION_memory
+#define VERSION_memory "0.15.0"
+#endif /* VERSION_memory */
+#ifndef MIN_VERSION_memory
+#define MIN_VERSION_memory(major1,major2,minor) (\
   (major1) <  0 || \
-  (major1) == 0 && (major2) <  13 || \
-  (major1) == 0 && (major2) == 13 && (minor) <= 3)
-#endif /* MIN_VERSION_crypto_api */
-
-/* package cryptohash-0.11.9 */
-#ifndef VERSION_cryptohash
-#define VERSION_cryptohash "0.11.9"
-#endif /* VERSION_cryptohash */
-#ifndef MIN_VERSION_cryptohash
-#define MIN_VERSION_cryptohash(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  11 || \
-  (major1) == 0 && (major2) == 11 && (minor) <= 9)
-#endif /* MIN_VERSION_cryptohash */
-
-/* package curve25519-0.2.7 */
-#ifndef VERSION_curve25519
-#define VERSION_curve25519 "0.2.7"
-#endif /* VERSION_curve25519 */
-#ifndef MIN_VERSION_curve25519
-#define MIN_VERSION_curve25519(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  2 || \
-  (major1) == 0 && (major2) == 2 && (minor) <= 7)
-#endif /* MIN_VERSION_curve25519 */
+  (major1) == 0 && (major2) <  15 || \
+  (major1) == 0 && (major2) == 15 && (minor) <= 0)
+#endif /* MIN_VERSION_memory */
 
 /* package rio-0.1.21.0 */
 #ifndef VERSION_rio
@@ -287,10 +265,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "hcryptomotor-0.1.0.0-KuIZG9PC0cYLDOWHOosQUU"
+#define CURRENT_PACKAGE_KEY "hcryptomotor-0.1.0.0-FjxPYV6y8QQ1ORVOJ0m0Ro"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-KuIZG9PC0cYLDOWHOosQUU"
+#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-FjxPYV6y8QQ1ORVOJ0m0Ro"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

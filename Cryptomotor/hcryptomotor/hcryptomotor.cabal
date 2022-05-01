@@ -78,12 +78,10 @@ library
         aeson-pretty,
         attoparsec,
         attoparsec-binary,
-        crypto-api ^>=0.13.1,
         bytestring,
-        curve25519 ^>=0.2.6,
         tuple,
-        cprng-aes,
-        cryptohash,
+        memory,
+        cryptonite,
         text
 
     -- Directories containing source files.
@@ -121,13 +119,11 @@ executable hcryptomotor
         aeson-pretty,
         attoparsec,
         attoparsec-binary,
-        text,
-        crypto-api ^>=0.13.1,
         bytestring,
-        curve25519 ^>=0.2.6,
         tuple,
-        cryptohash,
-        cprng-aes,
+        cryptonite,
+        text,
+        memory,
         hcryptomotor
 
     -- Directories containing source files.
