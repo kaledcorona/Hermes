@@ -20,19 +20,22 @@ main :: IO ()
 main = do
 
     -- Comment when not in testing
-    prvKey <- openFile "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/bins/rsa-prv.key" ReadMode
+    pubKey <- openFile "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/bins/rsa-pub.key" ReadMode
 
     -- UnComment for production
-    -- prvKey <- openFile "rsa-prv.key" ReadMode
+    -- pubKey <- openFile "rsa-pub.key" ReadMode
 
     {- Read the public key-}
-    key <- hGetLine prvKey
+    key <- hGetLine pubKey
 
-    {- Read from stdin-}
+    {- Read the original message from the stdin -}
     contents <- getContents
 
+    {- Read the digital signature from stdin -}
+    dfirm <- getContents
+
     {- Read public key and convert to tuple of Integers-}
-    let (n,d) = read (key) :: (Integer,Integer)
+    let (n,e) = read (key) :: (Integer,Integer)
 
     {- Convert string content to ByteString -}
     let bsContents = BSU.fromString contents
@@ -40,25 +43,23 @@ main = do
     {- Calculate the hash of the file -}
     let hashcontent = hashWith384 bsContents
 
-    {- Encrypt the content of the digest with  private key-}
-    let encContents = encryptText contents (n,d)
+    {- Decrypt the content of the digest with public key-}
+    let decContents = decryptText dfirm (n,e)
+    hClose pubKey
 
-    {- Save the message and the signature of the message in a file -}
-    -- Comment this line when not testing 
-    writeFile ("/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/signature") (encContents)
-    -- uncomment when production
-    -- TIO.writeFile ("./signature") (T.pack encContents)
-    hClose prvKey
-        
+    {- Verify if digital firm is equal to the message-}
+    TIO.putStrLn $ TS.pack $ show $ verify dfirm hashcontent
 
-{- Returns a string of [Integer] representing the encrypted text -}
-encryptText :: String -> (Integer,Integer) -> String
-encryptText msg (n,e) = show encodedIntegers 
-    where encodedIntegers = map (\x -> powerMod x e n ) $ encodeTextInt msg
+{- Recovers the decrypted text from a string containing an encrypted [Integer] list -}
+decryptText :: String -> (Integer,Integer) -> String
+decryptText msg (n,d) = decodeIntText $ map (\x -> powerMod x d n ) $ encryptedList
+	where encryptedList = read msg :: [Integer] 
+
 
 {- Returns the SHA384 of a file -}
 hashWith384 :: BS.ByteString -> String
 hashWith384 msg = show (H.hashWith H.SHA384 msg)
 
 {- Returns a Bool if the file is verified -}
--- verify :: String -> String -> Integer -> Bool
+verify :: String -> String -> Bool
+verify firm msg = if (firm == msg) then True else False

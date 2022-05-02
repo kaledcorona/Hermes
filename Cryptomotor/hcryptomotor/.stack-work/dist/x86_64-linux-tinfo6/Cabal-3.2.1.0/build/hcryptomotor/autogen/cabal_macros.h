@@ -132,6 +132,28 @@
   (major1) == 0 && (major2) == 15 && (minor) <= 0)
 #endif /* MIN_VERSION_memory */
 
+/* package optparse-applicative-0.16.1.0 */
+#ifndef VERSION_optparse_applicative
+#define VERSION_optparse_applicative "0.16.1.0"
+#endif /* VERSION_optparse_applicative */
+#ifndef MIN_VERSION_optparse_applicative
+#define MIN_VERSION_optparse_applicative(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  16 || \
+  (major1) == 0 && (major2) == 16 && (minor) <= 1)
+#endif /* MIN_VERSION_optparse_applicative */
+
+/* package optparse-generic-1.4.7 */
+#ifndef VERSION_optparse_generic
+#define VERSION_optparse_generic "1.4.7"
+#endif /* VERSION_optparse_generic */
+#ifndef MIN_VERSION_optparse_generic
+#define MIN_VERSION_optparse_generic(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  4 || \
+  (major1) == 1 && (major2) == 4 && (minor) <= 7)
+#endif /* MIN_VERSION_optparse_generic */
+
 /* package process-1.6.13.2 */
 #ifndef VERSION_process
 #define VERSION_process "1.6.13.2"
@@ -164,6 +186,17 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 21)
 #endif /* MIN_VERSION_rio */
+
+/* package system-filepath-0.4.14 */
+#ifndef VERSION_system_filepath
+#define VERSION_system_filepath "0.4.14"
+#endif /* VERSION_system_filepath */
+#ifndef MIN_VERSION_system_filepath
+#define MIN_VERSION_system_filepath(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 14)
+#endif /* MIN_VERSION_system_filepath */
 
 /* package text-1.2.4.1 */
 #ifndef VERSION_text
@@ -309,7 +342,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-8Q0HaJg0l3AGKVZO68bcH-hcryptomotor"
+#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-6VZcXY0XHuo4eHlOzksNKL-hcryptomotor"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

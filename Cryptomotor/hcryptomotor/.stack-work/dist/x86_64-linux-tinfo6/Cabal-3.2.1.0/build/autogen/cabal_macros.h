@@ -287,10 +287,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "hcryptomotor-0.1.0.0-1ORmtHxjhbaI14Yk8SUnsw"
+#define CURRENT_PACKAGE_KEY "hcryptomotor-0.1.0.0-BsfOmzr0xCg3xqA5nOdFPE"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-1ORmtHxjhbaI14Yk8SUnsw"
+#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-BsfOmzr0xCg3xqA5nOdFPE"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
