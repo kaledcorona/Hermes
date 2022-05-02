@@ -99,27 +99,16 @@
   (major1) == 1 && (major2) == 3 && (minor) <= 5)
 #endif /* MIN_VERSION_conduit_extra */
 
-/* package crypto-api-0.13.3 */
-#ifndef VERSION_crypto_api
-#define VERSION_crypto_api "0.13.3"
-#endif /* VERSION_crypto_api */
-#ifndef MIN_VERSION_crypto_api
-#define MIN_VERSION_crypto_api(major1,major2,minor) (\
+/* package cryptonite-0.29 */
+#ifndef VERSION_cryptonite
+#define VERSION_cryptonite "0.29"
+#endif /* VERSION_cryptonite */
+#ifndef MIN_VERSION_cryptonite
+#define MIN_VERSION_cryptonite(major1,major2,minor) (\
   (major1) <  0 || \
-  (major1) == 0 && (major2) <  13 || \
-  (major1) == 0 && (major2) == 13 && (minor) <= 3)
-#endif /* MIN_VERSION_crypto_api */
-
-/* package curve25519-0.2.7 */
-#ifndef VERSION_curve25519
-#define VERSION_curve25519 "0.2.7"
-#endif /* VERSION_curve25519 */
-#ifndef MIN_VERSION_curve25519
-#define MIN_VERSION_curve25519(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  2 || \
-  (major1) == 0 && (major2) == 2 && (minor) <= 7)
-#endif /* MIN_VERSION_curve25519 */
+  (major1) == 0 && (major2) <  29 || \
+  (major1) == 0 && (major2) == 29 && (minor) <= 0)
+#endif /* MIN_VERSION_cryptonite */
 
 /* package hcryptomotor-0.1.0.0 */
 #ifndef VERSION_hcryptomotor
@@ -132,6 +121,61 @@
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_hcryptomotor */
 
+/* package memory-0.15.0 */
+#ifndef VERSION_memory
+#define VERSION_memory "0.15.0"
+#endif /* VERSION_memory */
+#ifndef MIN_VERSION_memory
+#define MIN_VERSION_memory(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  15 || \
+  (major1) == 0 && (major2) == 15 && (minor) <= 0)
+#endif /* MIN_VERSION_memory */
+
+/* package optparse-applicative-0.16.1.0 */
+#ifndef VERSION_optparse_applicative
+#define VERSION_optparse_applicative "0.16.1.0"
+#endif /* VERSION_optparse_applicative */
+#ifndef MIN_VERSION_optparse_applicative
+#define MIN_VERSION_optparse_applicative(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  16 || \
+  (major1) == 0 && (major2) == 16 && (minor) <= 1)
+#endif /* MIN_VERSION_optparse_applicative */
+
+/* package optparse-generic-1.4.7 */
+#ifndef VERSION_optparse_generic
+#define VERSION_optparse_generic "1.4.7"
+#endif /* VERSION_optparse_generic */
+#ifndef MIN_VERSION_optparse_generic
+#define MIN_VERSION_optparse_generic(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  4 || \
+  (major1) == 1 && (major2) == 4 && (minor) <= 7)
+#endif /* MIN_VERSION_optparse_generic */
+
+/* package process-1.6.13.2 */
+#ifndef VERSION_process
+#define VERSION_process "1.6.13.2"
+#endif /* VERSION_process */
+#ifndef MIN_VERSION_process
+#define MIN_VERSION_process(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  6 || \
+  (major1) == 1 && (major2) == 6 && (minor) <= 13)
+#endif /* MIN_VERSION_process */
+
+/* package random-1.2.0 */
+#ifndef VERSION_random
+#define VERSION_random "1.2.0"
+#endif /* VERSION_random */
+#ifndef MIN_VERSION_random
+#define MIN_VERSION_random(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 0)
+#endif /* MIN_VERSION_random */
+
 /* package rio-0.1.21.0 */
 #ifndef VERSION_rio
 #define VERSION_rio "0.1.21.0"
@@ -142,6 +186,17 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 21)
 #endif /* MIN_VERSION_rio */
+
+/* package system-filepath-0.4.14 */
+#ifndef VERSION_system_filepath
+#define VERSION_system_filepath "0.4.14"
+#endif /* VERSION_system_filepath */
+#ifndef MIN_VERSION_system_filepath
+#define MIN_VERSION_system_filepath(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 14)
+#endif /* MIN_VERSION_system_filepath */
 
 /* package text-1.2.4.1 */
 #ifndef VERSION_text
@@ -154,6 +209,17 @@
   (major1) == 1 && (major2) == 2 && (minor) <= 4)
 #endif /* MIN_VERSION_text */
 
+/* package tuple-0.3.0.2 */
+#ifndef VERSION_tuple
+#define VERSION_tuple "0.3.0.2"
+#endif /* VERSION_tuple */
+#ifndef MIN_VERSION_tuple
+#define MIN_VERSION_tuple(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  3 || \
+  (major1) == 0 && (major2) == 3 && (minor) <= 0)
+#endif /* MIN_VERSION_tuple */
+
 /* package unliftio-0.2.21.0 */
 #ifndef VERSION_unliftio
 #define VERSION_unliftio "0.2.21.0"
@@ -164,6 +230,17 @@
   (major1) == 0 && (major2) <  2 || \
   (major1) == 0 && (major2) == 2 && (minor) <= 21)
 #endif /* MIN_VERSION_unliftio */
+
+/* package utf8-string-1.0.2 */
+#ifndef VERSION_utf8_string
+#define VERSION_utf8_string "1.0.2"
+#endif /* VERSION_utf8_string */
+#ifndef MIN_VERSION_utf8_string
+#define MIN_VERSION_utf8_string(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  0 || \
+  (major1) == 1 && (major2) == 0 && (minor) <= 2)
+#endif /* MIN_VERSION_utf8_string */
 
 /* tool gcc-11.2.0 */
 #ifndef TOOL_VERSION_gcc
@@ -265,7 +342,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-JNxfuL9EWM69EpHY61pnA9-hcryptomotor"
+#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-6VZcXY0XHuo4eHlOzksNKL-hcryptomotor"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
