@@ -132,6 +132,28 @@
   (major1) == 0 && (major2) == 15 && (minor) <= 0)
 #endif /* MIN_VERSION_memory */
 
+/* package process-1.6.13.2 */
+#ifndef VERSION_process
+#define VERSION_process "1.6.13.2"
+#endif /* VERSION_process */
+#ifndef MIN_VERSION_process
+#define MIN_VERSION_process(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  6 || \
+  (major1) == 1 && (major2) == 6 && (minor) <= 13)
+#endif /* MIN_VERSION_process */
+
+/* package random-1.2.0 */
+#ifndef VERSION_random
+#define VERSION_random "1.2.0"
+#endif /* VERSION_random */
+#ifndef MIN_VERSION_random
+#define MIN_VERSION_random(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 0)
+#endif /* MIN_VERSION_random */
+
 /* package rio-0.1.21.0 */
 #ifndef VERSION_rio
 #define VERSION_rio "0.1.21.0"
@@ -276,7 +298,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-GLaFXZhnmPe5lyclOoi6XE-hcryptomotor"
+#define CURRENT_COMPONENT_ID "hcryptomotor-0.1.0.0-L2ZTBRDPjQOIbysY43JjgC-hcryptomotor"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

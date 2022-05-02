@@ -1,6 +1,7 @@
 import System.IO
 import System.Random
 import RSALib
+import Prelude
 
 main = do
 	{- Create new files in writemode -}
