@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web-base multi digital signature tool">
     <meta name="author" content="Kaco">
-    <base href="./resources/" target="_blank">
+    <base href="./resources/" target="_top">
 
 
     <!-- CSS style -->
-    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <!-- Favicons-->
@@ -25,33 +25,35 @@
 </head>
 
 
-<body class="w3-cell-row">
+<body class="w3-cell-row bodybox">
     <!-- Sidebar hidden on small screens -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <nav class="w3-sidebar w3-cell w3-bar-block w3-small w3-hide-small w3-center w3-light-gray">
         <!-- Logo image in top left corner -->
-        <img id="profile-img" src="static/icons/teleton-100x84-black.png" alt="Teleton logo yellow" style="width: 100%;">
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-            <i class="fa fa-home w3-xxlarge"></i>
+        <div class="profile-img-box w3-container">
+            <img id="profile-img" src="static/icons/hermes.png" alt="Teleton logo yellow" style="width: 100%;">
+        </div>
+        <a href="../menu.html#main"  id="mainbtn" class="w3-bar-item w3-button w3-padding-large w3-yellow w3-padding-16" >
+            <i class="fa w3-xxlarge"></i>
             <p>Herramientas</p>
         </a>
-        <a href="#MyDocs" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-user w3-xxlarge"></i>
+        <a href="../menu.html#mydocs"  id="docsbtn" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
+            <i class="fa w3-xxlarge"></i>
             <p>Mis documentos</p>
         </a>
-        <a href="#MyShares" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-eye w3-xxlarge"></i>
+        <a href="../menu.html#myshares" id="sharesbtn" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
+            <i class="fa w3-xxlarge"></i>
             <p>Compartido</p>
         </a>
-        <a href="#MyActivity" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-home w3-xxlarge"></i>
+        <a href="../menu.html#myactivity" id="actbtn" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
+            <i class="fa w3-xxlarge"></i>
             <p>Actividad</p>
         </a>
-        <a href="#MyAnnouncements" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-home w3-xxlarge"></i>
+        <a href="../menu.html#myannounces" id="newsbtn" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
+            <i class="fa w3-xxlarge"></i>
             <p>Anuncios</p>
         </a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-home w3-xxlarge"></i>
+        <a href="../index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
+            <i class="fa w3-xxlarge"></i>
             <p>Cerrar sesion</p>
         </a>
     </nav>
@@ -68,30 +70,56 @@
     </nav>
 
     <!-- Page content -->
-    <div class="w3-padding-large w3-cell-row" id="main">
+    <div class="w3-padding-large w3-row " id="main">
         <!-- Firmar -->
-        <header class="w3-padding-32 w3-center w3-cell w3-half" id="home">
-            <h1 class="w3-jumbo">Firma</h1>
-            <form action="#" method="post" >
-                <label for="gfile">Seleccione el archivo</label>
-                <input type="file" id="gfile" name="gfile"><br><br>
-                <label for="gpassword">Ingrese su contrasena</label><br>
-                <input type="text" id="gpassword" name="gpsswd"><br>
-                <input type="submit" value="Submit">
-            </form>
-        </header>
-
-        <!-- Verificar -->
-        <div class="w3-padding-32 w3-center w3-cell w3-half" id="about">
-            <header class="w3-container w3-padding-32 w3-center w3-cell" id="home">
-                <h1 class="w3-jumbo">Verifica</h1>
+        <header class="w3-padding-32 w3-center w3-container w3-half" id="home">
+            <div class="w3-container w3-center w3-padding-16" id="firmar-box">
+                <h3 class="w3-xxlarge">Firmar</h3>
+                <form action="#" method="post">
+                    <label for="gfile">Seleccione el archivo</label>
+                    <input type="file" id="gfile" name="gfile"><br><br>
+                    <label for="gpassword">Ingrese su contrasena</label><br>
+                    <input type="text" id="gpassword" name="gpsswd"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div id="verificar-box" class="w3-container w3-center w3-padding-16">
+                <h3 class="w3-xxlarge">Verificar</h3>
                 <form action="#" method="post" >
                     <label for="vfile">Seleccione el archivo a verificar</label>
                     <input type="file" id="vfile" name="vfile"><br><br>
                     <input type="submit" value="Submit">
                 </form>
-            </header>
-        </div>
+            </div>          
+        </header>
+        <section class="w3-row w3-padding-32" id="mydocs">
+            <div class="w3-container w3-padding-16 mydocs-box">
+                <div class="w3-container w3-center w3-padding-16" id="qwe">
+                    <h3 class="w3-xxlarge">Documentos</h3>
+                    <div class="w3-card-4">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>The Italian / Austrian Alps</p>
+                        </div>
+                      </div> 
+                </div>
+            </div>
+        </section>
+        <section class="w3-row w3-padding-32" id="myshares">
+            <div class="w3-container w3-center w3-padding-16" id="qwe">
+                <h3 class="w3-xxlarge">Compatido</h3>
+            </div>
+        </section>
+        <section class="w3-row w3-padding-32" id="myactivity">
+            <div class="w3-container w3-center w3-padding-16" id="qwe">
+                <h3 class="w3-xxlarge">Actividad</h3>
+            </div>
+        </section>
+        <section class="w3-row w3-padding-32" id="myannounces">
+            <div class="w3-container w3-center w3-padding-16" id="qwe">
+                <h3 class="w3-xxlarge">Anuncios</h3>
+            </div>
+        </section>
     </div>
 </body>
 </html>

@@ -6,8 +6,9 @@ body{
     /* Font configurations*/
     font-family: 'sans-serif', sans-serif;
 
-    /* Background color*/
-    /* background: var(--primary-DEFAULT) none repeat scroll 0% 0%; */
+    /* Background Image */
+    background-image: url("../static/img/menu-background.png");
+    background-color: var(--primary-DEFAULT);
   
     /*Color theme*/
     --primary-DEFAULT:      #fbfdfe;
@@ -35,13 +36,70 @@ body{
 
 .w3-sidebar {
     width: 120px;
-    background-color: #222;
 }
 
 #main {
     margin-left: 120px;
 }
 
+#profile-img {
+    position: relative;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+}
+
+
+#home {
+    position: absolute;
+    left: 24vw;
+    top: 20vh;
+    width: 60vw;
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+
+#mydocs {
+    position: relative;
+    top: 103vh;
+    height: 100vh;
+}
+
+.mydocs-box {
+    position: absolute;
+    width: 65vw;
+    top: 20vh;
+    left: 15vw;
+    height: 60vh;
+}
+
+#myshares {
+    position: relative;
+    top: 211vh;
+    height: 100vh;
+}
+
+#myactivity {
+    position: relative;
+    top: 318vh;
+    height: 100vh;
+}
+
+#myannounces {
+    position: relative;
+    top: 426vh;
+    height: 100vh;
+}
+
+@media only screen and (max-width:1940px){
+    body{
+  
+        /* Background Image */
+        /*background-image: url("../static/img/menu-background.png");*/
+        background-color: var(--secondary-color) !important;
+      
+    }
+ 
+}
 
 @media only screen and (max-width: 600px) {
     /*Remove margins from the page content on small screens*/
