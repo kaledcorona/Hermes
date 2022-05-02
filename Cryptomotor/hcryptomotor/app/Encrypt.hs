@@ -10,7 +10,7 @@ import qualified Data.Text    as T
 main :: IO ()
 main = do
     
-    {-- The key is read as module, encrypt number}
+    {-- The key is read as module, encrypt number --}
     -- Comment when not in testing
     pubKey <- openFile "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/bins/rsa-pub.key" ReadMode
 

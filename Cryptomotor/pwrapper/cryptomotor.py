@@ -4,6 +4,6 @@ import subprocess
 
 
 def callCryptoMotor(argument):
-    subprocess.run(["./", argument])
+    subprocess.run(["../hcryptomotor/bins/hcryptomotor", argument])
 
 callCryptoMotor("")

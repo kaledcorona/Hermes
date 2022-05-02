@@ -59,7 +59,6 @@ library
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -81,6 +80,7 @@ library
         attoparsec-binary,
         bytestring,
         tuple,
+        utf8-string,
         memory,
         cryptonite,
         text
@@ -99,7 +99,6 @@ library
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -122,6 +121,7 @@ library
         bytestring,
         tuple,
         memory,
+        utf8-string,
         cryptonite,
         text,
         random
@@ -141,7 +141,6 @@ executable hcryptomotor
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -165,6 +164,7 @@ executable hcryptomotor
         cryptonite,
         text,
         memory,
+        utf8-string,
         random,
         process,
         hcryptomotor
@@ -185,7 +185,6 @@ executable hcryptomotor-genkey
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -209,6 +208,7 @@ executable hcryptomotor-genkey
         cryptonite,
         text,
         memory,
+        utf8-string,
         random,
         process,
         hcryptomotor
@@ -230,7 +230,6 @@ executable hcryptomotor-encrypt
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -255,6 +254,7 @@ executable hcryptomotor-encrypt
         text,
         memory,
         random,
+        utf8-string,
         process,
         hcryptomotor
 
@@ -274,7 +274,6 @@ executable hcryptomotor-decrypt
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -300,6 +299,7 @@ executable hcryptomotor-decrypt
         memory,
         random,
         process,
+        utf8-string,
         hcryptomotor
 
     -- Directories containing source files.
@@ -318,7 +318,6 @@ executable hcryptomotor-sign
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
-        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -344,6 +343,7 @@ executable hcryptomotor-sign
         memory,
         random,
         process,
+        utf8-string,
         hcryptomotor
 
     -- Directories containing source files.
@@ -351,6 +351,9 @@ executable hcryptomotor-sign
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+
+
+    
 
 test-suite hcryptomotor-test
     -- Base language which the package is written in.
@@ -380,5 +383,6 @@ test-suite hcryptomotor-test
         crypto-api ^>=0.13.1,
         bytestring,
         curve25519 ^>=0.2.6,
+        utf8-string,
         hcryptomotor
 

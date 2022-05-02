@@ -4,11 +4,16 @@ module Main where
 import qualified RSAHelper                    as Crypt
 import qualified RIO                          as R
 import qualified Data.Text.IO                 as TIO
-import qualified Data.Text                    as T
-import System.IO
-import Control.Concurrent
-import System.Process
-import Prelude
+import qualified Data.Text                    as TS
+import qualified Data.Text.Lazy               as TL
+import qualified Data.ByteString              as BS
+import qualified Data.ByteString.Lazy.UTF8    as BLU  -- from utf8-string
+import qualified Data.ByteString.UTF8         as BSU  -- from utf8-string
+import qualified Data.ByteString.Lazy         as BL
+import           System.IO
+import           Control.Concurrent
+import           System.Process
+import           Prelude
 
 
 main :: IO ()
@@ -19,20 +24,23 @@ main = do
   -- Read a line from stdin
   line <- TIO.getLine
 
+  -- Convert from Text to String
+  let selection = TS.unpack line
+
   -- Menu 
-  menu line
+  menu selection
 
   -- Emphasize the importance of hSetBuffering :P
   threadDelay 10
 
-  TIO.putStrLn "Hello, Haskell!"
-  Crypt.exampleHashWith "holaa"
+  TIO.putStrLn $ TS.pack "Hello, Haskell!"
+  Crypt.exampleHashWith $ BSU.fromString "holaa"
 
 
-menu :: (T.Text) -> IO ()
-menu ("1" :: T.Text) = callCommand "cd bins; ./hcryptomotor-genkey"
-menu ("2" :: T.Text) = callCommand "echo 'Encriptar documento'"
-menu ("3" :: T.Text) = callCommand "echo 'Desencriptar documento'"
-menu ("4" :: T.Text) = callCommand "echo 'Firmar documento'"
-menu ("5" :: T.Text) = callCommand "echo 'Verificar documento'"
-menu _ = callCommand "echo 'Error: opcion no encontrada'"
+menu :: String -> IO ()
+menu "1" = callCommand "cd bins; ./hcryptomotor-genkey"
+menu "2" = callCommand "echo 'Encriptar documento'"
+menu "3" = callCommand "echo 'Desencriptar documento'"
+menu "4" = callCommand "echo 'Firmar documento'"
+menu "5" = callCommand "echo 'Verificar documento'"
+menu _   = callCommand "echo 'Error: opcion no encontrada'"
