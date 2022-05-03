@@ -11,6 +11,7 @@ import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
 import qualified Data.ByteString.Lazy        as BL
 import qualified Data.ByteArray              as BA
 import qualified Crypto.Hash                 as H
+import           System.Process
 import           Crypto.Hash.Algorithms
 import           Crypto.Random.Types
 import qualified Crypto.Number.ModArithmetic as ModA
@@ -25,7 +26,7 @@ main = do
     -- UnComment for production
     -- prvKey <- openFile "rsa-prv.key" ReadMode
 
-    {- Read the public key-}
+    {- Read the privkey key-}
     key <- hGetLine prvKey
 
     {- Read from stdin-}
