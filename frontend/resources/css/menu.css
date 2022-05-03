@@ -67,27 +67,53 @@ body{
 .mydocs-box {
     position: absolute;
     width: 65vw;
-    top: 20vh;
+    top: 18vh;
     left: 15vw;
     height: 60vh;
 }
 
 #myshares {
     position: relative;
-    top: 211vh;
+    top: 110vh;
     height: 100vh;
+}
+
+#share-box {
+    position: relative;
+    width: 65vw;
+    height: 70vh;
+    left: 15vw;
+    top: 15vh;
 }
 
 #myactivity {
     position: relative;
-    top: 318vh;
+    top: 110vh;
     height: 100vh;
+}
+
+#activity-box{
+    position: relative;
+    top: 21vh;
+    width: 65vw;
+    height: 70vh;
+    left: 15vw;
 }
 
 #myannounces {
     position: relative;
-    top: 426vh;
+    top: 110vh;
     height: 100vh;
+}
+
+.row-width {
+    position: relative;
+    width: 57.6vw;
+    height: 19vh;
+}
+
+.cell-margin {
+    margin-right: 0.1vh;
 }
 
 @media only screen and (max-width:1940px){
