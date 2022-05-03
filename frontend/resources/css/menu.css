@@ -106,6 +106,14 @@ body{
     height: 100vh;
 }
 
+#myannounces-box {
+    position: relative;
+    width: 57vw;
+    height: 58vh;
+    top: 21vh;
+    left: 20vw;
+}
+
 .row-width {
     position: relative;
     width: 57.6vw;
