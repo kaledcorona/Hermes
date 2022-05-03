@@ -55,7 +55,7 @@
         </a>
         <a href="../menu.html#myannounces" id="newsbtn" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
             <i class="fa w3-xxlarge"></i>
-            <p>Anuncios</p>
+            <p>Comunicados</p>
         </a>
         <a href="../index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
             <i class="fa w3-xxlarge"></i>
@@ -69,7 +69,7 @@
             <a href="#" class="w3-bar-item w3-button" style="width: 24% !important;">Documentos</a>
             <a href="#" class="w3-bar-item w3-button" style="width: 22% !important;">Compartido</a>
             <a href="#" class="w3-bar-item w3-button" style="width: 20% !important;">Actividad</a>
-            <a href="#" class="w3-bar-item w3-button" style="width: 20% !important;">Anuncios</a>
+            <a href="#" class="w3-bar-item w3-button" style="width: 20% !important;">Comunicados</a>
             <a href="#" class="w3-bar-item w3-button" style="width: 14% !important;">Salir</a>
         </div>
     </nav>
@@ -80,20 +80,44 @@
         <header class="w3-padding-32 w3-center w3-container w3-half" id="home">
             <div class="w3-container w3-center w3-padding-16" id="firmar-box">
                 <h3 class="w3-xxlarge">Firmar</h3>
-                <form action="#" method="post">
-                    <label for="gfile">Seleccione el archivo</label>
-                    <input type="file" id="gfile" name="gfile"><br><br>
-                    <label for="gpassword">Ingrese su contrasena</label><br>
-                    <input type="text" id="gpassword" name="gpsswd"><br>
-                    <input type="submit" value="Submit">
+                <form action="../menu.html#myactivity" method="post">
+                    <div class="w3-row">
+                        <div class="w3-cell w3-container">
+                            <div class="w3-card-4 w3-button w3-round-large">
+                                <label for="gfile">Seleccione el archivo</label>
+                                <i class="fa w3-jumbo"></i>
+                                <div class="w3-container w3-center">
+                                    <input type="file" id="gfile" name="gfile"><br><br>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="w3-cell w3-container contrasena-cell">
+                            <label for="gpassword">Ingrese su contrasena</label><br>
+                            <input type="text" id="gpassword" name="gpsswd"><br>
+                            <input class="w3-xxlarge w3-round-xlarge w3-yellow w3-margin-top " type="submit" value="Submit">
+                        </div>
+                    </div>
                 </form>
             </div>
             <div id="verificar-box" class="w3-container w3-center w3-padding-16">
                 <h3 class="w3-xxlarge">Verificar</h3>
-                <form action="#" method="post" >
-                    <label for="vfile">Seleccione el archivo a verificar</label>
-                    <input type="file" id="vfile" name="vfile"><br><br>
-                    <input type="submit" value="Submit">
+                <form action="../menu.html#myactivity" method="post">
+                    <div class="w3-row">
+                        <div class="w3-cell w3-container">
+                            <div class="w3-card-4 w3-button w3-round-large">
+                                <label for="vfile">Seleccione el archivo a verificar</label>
+                                <i class="fa w3-jumbo"></i>
+                                <div class="w3-container w3-center">
+                                    <input type="file" id="vfile" name="vfile"><br><br>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="w3-cell w3-container contrasena-cell">
+                            <label for="gpassword">Ingrese su contrasena</label><br>
+                            <input type="text" id="gpassword" name="gpsswd"><br>
+                            <input class="w3-xxlarge w3-round-xlarge w3-yellow w3-margin-top " type="submit" value="Submit">
+                        </div>
+                    </div>
                 </form>
             </div>          
         </header>
@@ -191,6 +215,87 @@
             <div class="w3-container w3-center w3-padding-16" id="share-box">
                 <h3 class="w3-xxlarge w3-opacity ">Compartido</h3>
             </div>
+            <div class="w3-container w3-center" id="share-content">
+                <div class="w3-cellrow w3-padding-16 row-width">
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Finanzas</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Contabilidad2022.pdf</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Saldo</p>
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Recetas</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="w3-cellrow w3-padding-16 row-width">
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Fotos</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Facturas</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Publicidad</p>
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Estados de cuenta01.pdf</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="w3-cellrow w3-padding-16 row-width">
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Dedicibles</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>PDFs</p>
+                        </div>
+                    </div> 
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Informes2022.pdf</p>
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-cell w3-quarter w3-button w3-round-large">
+                        <i class="fa w3-jumbo"></i>
+                        <div class="w3-container w3-center">
+                          <p>Extra2</p>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
         </section>
         <section class="w3-row w3-padding-32" id="myactivity">
             <div class="w3-container w3-center w3-padding-16" id="activity-box">
@@ -247,7 +352,7 @@
         </section>
         <section class="w3-row w3-padding-32" id="myannounces">
             <div class="w3-container w3-center w3-padding-16" id="myannounces-box">
-                <h3 class="w3-xxlarge w3-opacity">Anuncios</h3>
+                <h3 class="w3-xxlarge w3-opacity">Comunicados</h3>
                 <div class="w3-content w3-display-container">
                     <img class="mySlides" src="dynamic/img/anuncio1.png" style="width:100%">
                     <img class="mySlides" src="dynamic/img/anuncio2.png" style="width:100%">

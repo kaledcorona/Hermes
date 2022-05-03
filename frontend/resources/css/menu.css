@@ -2,30 +2,33 @@
 
 /*Global configurations*/
 
-body{
+body {
     /* Font configurations*/
     font-family: 'sans-serif', sans-serif;
 
     /* Background Image */
     background-image: url("../static/img/menu-background.png");
     background-color: var(--primary-DEFAULT);
-  
+
     /*Color theme*/
-    --primary-DEFAULT:      #fbfdfe;
-    --secondary-color:      #EEC900;
-    --terciary-color:       #0f1419;
-    --primary-text:         #0f1419;
-    --primary-text-light:   #6c6c6c;  
-  
-  }
-  
-  /* Font parameters*/
-  h1,h2,h3{
+    --primary-DEFAULT: #fbfdfe;
+    --secondary-color: #EEC900;
+    --terciary-color: #0f1419;
+    --primary-text: #0f1419;
+    --primary-text-light: #6c6c6c;
+
+}
+
+/* Font parameters*/
+h1,
+h2,
+h3 {
     font-weight: 720;
     color: var(--primary-text)
-  }
-  
-  h4,h5{
+}
+
+h4,
+h5 {
     font-weight: 500;
     color: var(--primary-text)
 }
@@ -74,7 +77,7 @@ body{
 
 #myshares {
     position: relative;
-    top: 110vh;
+    top: 113vh;
     height: 100vh;
 }
 
@@ -83,7 +86,14 @@ body{
     width: 65vw;
     height: 70vh;
     left: 15vw;
-    top: 15vh;
+    top: 12vh;
+}
+
+#share-content {
+    position: relative;
+    left: 17vw;
+    bottom: 48vh;
+    width: 60vw;
 }
 
 #myactivity {
@@ -92,9 +102,9 @@ body{
     height: 100vh;
 }
 
-#activity-box{
+#activity-box {
     position: relative;
-    top: 21vh;
+    top: 0vh;
     width: 65vw;
     height: 70vh;
     left: 15vw;
@@ -102,7 +112,7 @@ body{
 
 #myannounces {
     position: relative;
-    top: 110vh;
+    top: 116vh;
     height: 100vh;
 }
 
@@ -110,7 +120,7 @@ body{
     position: relative;
     width: 57vw;
     height: 58vh;
-    top: 21vh;
+    top: 15vh;
     left: 20vw;
 }
 
@@ -120,28 +130,34 @@ body{
     height: 19vh;
 }
 
+
+.contrasena-cell {
+    position: relative;
+    left: 10vw;
+}
 .cell-margin {
     margin-right: 0.1vh;
 }
 
-@media only screen and (max-width:1940px){
-    body{
-  
+@media only screen and (max-width:1940px) {
+    body {
+
         /* Background Image */
         /*background-image: url("../static/img/menu-background.png");*/
         background-color: var(--secondary-color) !important;
-      
+
     }
- 
+
 }
 
 @media only screen and (max-width: 600px) {
+
     /*Remove margins from the page content on small screens*/
     #main {
         margin-left: 0px;
     }
 
-    .menu-box{
+    .menu-box {
         position: relative;
         width: 100%;
 
@@ -152,7 +168,7 @@ body{
         padding-right: 0px;
     }
 
-    .register-box{ 
+    .register-box {
         height: 2vh;
     }
 
