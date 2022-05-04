@@ -4,6 +4,7 @@ import           Options
 import           Prelude
 import           System.IO
 import           RSALib
+import           Data.Char
 import qualified Data.Text.IO                as TIO
 import qualified Data.Text                   as TS
 import qualified Data.Text.Encoding          (encodeUtf8)
@@ -12,7 +13,6 @@ import qualified Data.ByteString             as B
 import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
 import qualified Data.Map.Strict             as Map
 import           Data.Map.Strict             (Map)
-import           System.Environment          (getArgs)
 import           Crypto.Random.Types
 import           Crypto.Hash                 (Digest, SHA384, hash)
 import           Crypto.Hash.Algorithms
@@ -54,20 +54,40 @@ verifySignature signDecrypted hashDoc
     | otherwise                = "False"
 
 
+
+stripLeadingWhitespace :: String -> String
+stripLeadingWhitespace = unlines . map (dropWhile isSpace) . lines
+
+
 {- Calculate hash of a file-}
 readFile' :: FilePath -> IO (Map (Digest SHA384) [FilePath])
 readFile' fp = do
   bs <- B.readFile fp
-  let digest = hash bs -- notice lack of type signature :)
+  let digest = hash bs
+
   return $ Map.singleton digest [fp]
 
 main :: IO ()
-main = do 
-    args <- getArgs
-    m <- Map.unionsWith (++) <$> mapM readFile' args
+main = Options.runCommand $ \opts args -> do
+
+    {- Public key part -}
+    pubKey <- openFile (optKeyFilepath opts) ReadMode           -- Open Keyfile
+    key <- hGetLine pubKey                                      -- Read public key from keyfile
+    let (n,d) = read (key) :: (Integer,Integer)                 -- convert key to a tuple of integers
+
+    {- Signature part -}
+    signatureFile <- openFile (optSignature opts) ReadMode      -- Open Signature
+    signature <- hGetLine signatureFile                         -- Read signature
+
+    {- Hash document: Read Document and show digest-}
+    m <- Map.unionsWith (++) <$> mapM readFile' [(optDocFilepath opts)]
+    let decryptSign = stripLeadingWhitespace $ decryptText signature (n, d)              -- Decrypt signature with user's public key
+    let decryptSign' = (take 64 decryptSign) ++ (drop 65 decryptSign)
     forM_ (Map.toList m) $ \(digest, files) ->
         case files of
-            _ -> putStrLn $ show digest
+            _ -> putStrLn $ show ((take 96 (show digest)) == (take 96 decryptSign'))
+    hClose pubKey                                               -- Close the document Keyfile
+    hClose signatureFile
 
         
 

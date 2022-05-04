@@ -312,6 +312,7 @@ executable hcryptomotor-sign
         tuple,
         cryptonite,
         text,
+        containers,
         system-filepath,
         memory,
         random,
