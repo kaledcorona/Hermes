@@ -1,54 +1,49 @@
 {- Import modules -}
+import           Control.Applicative
+import           Options
+import           Prelude
 import           System.IO
 import           RSALib
-import           Prelude
 import qualified Data.Text.IO                as TIO
 import qualified Data.Text                   as TS
-import qualified Data.Text.Lazy              as TL
 import qualified Data.Text.Encoding          as TSE
 import qualified Data.ByteString             as BS
-import qualified Data.ByteString.Lazy.UTF8   as BLU  -- from utf8-string
 import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
-import qualified Data.ByteString.Lazy        as BL
 import qualified Data.ByteArray              as BA
-import qualified Crypto.Hash                 as H
-import           System.Process
-import           Crypto.Hash.Algorithms
 import           Crypto.Random.Types
-import qualified Crypto.Number.ModArithmetic as ModA
 
 
-main :: IO ()
-main = do
+{- Declare the options for the function -}
+data MainOptions = MainOptions
+    {
+        optKeyFilepath :: String
+    ,   optHash        :: String
+    }
 
-    -- Comment when not in testing
-    prvKey <- openFile "./bins/rsa-prv.key" ReadMode
-
-
-    {- Read the privkey key-}
-    key <- hGetLine prvKey
-
-
-    {- Read public key and convert to tuple of Integers-}
-    -- let (n,d) = read (key) :: (Integer,Integer)
-
-    {- Read hash from stdin -}
-    -- let hashContent =  TIO.hGetLine
-
-    -- TIO.hPutStrLn (hashContent :: TS.Text)
-
-    {- Encrypt the content of the digest with  private key-}
-    -- let encContents = encryptText contents (n,d)
-
-    {- Save the message and the signature of the message in a file -}
-    -- Comment this line when not testing 
-    -- writeFile ("/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/signature") (encContents)
-    -- uncomment when production
-    -- TIO.writeFile ("./signature") (T.pack encContents)
-    hClose prvKey
+{- Generate default configurations for opts -}
+instance Options MainOptions where
+    defineOptions = pure MainOptions
+        <*> simpleOption "key" ""
+            "Pass the Filepath to user's private key"
+        <*> simpleOption "hash" "2e6e446dac27fbf0ea51bdc43a8ce3913d89d8f24e95e004917e823fb1c03f7bfe2f10b90c198cb0f6f468e2c5420464"
+            "Pass the hash384 digest of the function"
         
 
 {- Returns a string of [Integer] representing the encrypted text -}
 encryptText :: String -> (Integer,Integer) -> String
 encryptText msg (n,e) = show encodedIntegers 
     where encodedIntegers = map (\x -> powerMod x e n ) $ encodeTextInt msg
+
+
+main :: IO ()
+main = runCommand $ \opts args -> do 
+    prvKey <- openFile (optKeyFilepath opts) ReadMode   -- Open Keyfile
+    key <- hGetLine prvKey                              -- Read private key from keyfile
+    let (n,d) = read (key) :: (Integer,Integer)         -- convert key to a tuple of integers
+    let hashDigest = (optHash opts)                     -- Read hash digest from users input
+    let signDoc = encryptText hashDigest (n,d)          -- Encrypt hash digest with user's private key
+    writeFile ("./signature.sig") (signDoc)             -- Create a file calle ./signature and write in it the encrypted hash digest
+    hClose prvKey                                       -- Close the document Keyfile
+
+        
+
