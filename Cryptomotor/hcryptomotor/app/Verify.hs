@@ -14,7 +14,7 @@ import qualified Data.Map.Strict             as Map
 import           Data.Map.Strict             (Map)
 import           System.Environment          (getArgs)
 import           Crypto.Random.Types
-import           Crypto.Hash                 (Digest, SHA256, hash)
+import           Crypto.Hash                 (Digest, SHA384, hash)
 import           Crypto.Hash.Algorithms
 import qualified Crypto.Hash.IO              as HashIO
 import           System.Process              as P
@@ -26,7 +26,7 @@ data MainOptions = MainOptions
     {
         optKeyFilepath :: String
     ,   optSignature   :: String
-    ,   optDocFilepath :: String
+    ,   optDocFilepath :: FilePath
     }
 
 {- Generate default configurations for opts -}
@@ -55,7 +55,7 @@ verifySignature signDecrypted hashDoc
 
 
 {- Calculate hash of a file-}
-readFile' :: FilePath -> IO (Map (Digest SHA256) [FilePath])
+readFile' :: FilePath -> IO (Map (Digest SHA384) [FilePath])
 readFile' fp = do
   bs <- B.readFile fp
   let digest = hash bs -- notice lack of type signature :)
@@ -63,22 +63,11 @@ readFile' fp = do
 
 main :: IO ()
 main = do 
-
-    {- Public key part -}
-    -- pubKey <- openFile (optKeyFilepath opts) ReadMode           -- Open Keyfile
-    -- key <- hGetLine pubKey                                      -- Read public key from keyfile
-    -- let (n,d) = read (key) :: (Integer,Integer)                 -- convert key to a tuple of integers
-
-    {- Signature part -}
-    --  signatureFile <- openFile (optSignature opts) ReadMode      -- Open Signature
-    -- signature <- hGetLine signatureFile                         -- Read signature
-
     args <- getArgs
-    let hash = readFile' args
-    putStrLn $ (show hash)
+    m <- Map.unionsWith (++) <$> mapM readFile' args
+    forM_ (Map.toList m) $ \(digest, files) ->
+        case files of
+            _ -> putStrLn $ show digest
 
-
-    -- hClose pubKey                                               -- Close the document Keyfile
-    -- hClose signatureFile
         
 
