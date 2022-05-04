@@ -7,9 +7,9 @@ import           RSALib
 import qualified Data.Text.IO                as TIO
 import qualified Data.Text                   as TS
 import qualified Data.Text.Encoding          as TSE
-import qualified Data.ByteString             as BS
+import qualified Data.ByteString             (ByteString)
 import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
-import qualified Data.ByteArray              as BA
+-- import qualified Data.ByteArray              as BA
 import           Crypto.Random.Types
 import           Crypto.Hash
 import           Crypto.Hash.Algorithms
@@ -69,16 +69,18 @@ main = Options.runCommand $ \opts args -> do
     {- Document part -}
     document <- openFile (optDocFilepath opts) ReadMode         -- Open document
     let content = hShow document                                -- Read document
-    (putStrLn content :: String)
-    --let btsDocument = BSU.fromString content                    -- Convert from strings to binary data
-    -- let hashDigest = sha1 btsDocument                           -- 
+    -- let btsDocument   = fmap BSU.fromString content             -- Convert from strings to binary data
 
+    {- Hash -}
+    -- let hashDigest = hash btsDocument :: Digest SHA384          -- Hash the document
+    -- let hashText = show hashDigest                              -- Hash as string
 
     {- Decryption -}
-    let decryptSign = decryptText signature (n, d)              -- Decrypt signature with user's public key
-    -- let validation = verifySignature decryptSign signature -- Validate if the signature is correct
+    -- let decryptSign = decryptText signature (n, d)              -- Decrypt signature with user's public key
+    -- let validation = verifySignature  hashText signature        -- Validate if the signature is correct
     -- putStrLn validation                                         -- Write in stdout the result
     hClose pubKey                                               -- Close the document Keyfile
-
+    hClose document
+    hClose signatureFile
         
 
