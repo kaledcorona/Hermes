@@ -6,12 +6,15 @@ import           System.IO
 import           RSALib
 import qualified Data.Text.IO                as TIO
 import qualified Data.Text                   as TS
-import qualified Data.Text.Encoding          as TSE
-import qualified Data.ByteString             (ByteString)
+import qualified Data.Text.Encoding          (encodeUtf8)
+import           Data.Foldable               (forM_)
+import qualified Data.ByteString             as B
 import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
--- import qualified Data.ByteArray              as BA
+import qualified Data.Map.Strict             as Map
+import           Data.Map.Strict             (Map)
+import           System.Environment          (getArgs)
 import           Crypto.Random.Types
-import           Crypto.Hash
+import           Crypto.Hash                 (Digest, SHA256, hash)
 import           Crypto.Hash.Algorithms
 import qualified Crypto.Hash.IO              as HashIO
 import           System.Process              as P
@@ -52,35 +55,30 @@ verifySignature signDecrypted hashDoc
 
 
 {- Calculate hash of a file-}
-
+readFile' :: FilePath -> IO (Map (Digest SHA256) [FilePath])
+readFile' fp = do
+  bs <- B.readFile fp
+  let digest = hash bs -- notice lack of type signature :)
+  return $ Map.singleton digest [fp]
 
 main :: IO ()
-main = Options.runCommand $ \opts args -> do 
+main = do 
 
     {- Public key part -}
-    pubKey <- openFile (optKeyFilepath opts) ReadMode           -- Open Keyfile
-    key <- hGetLine pubKey                                      -- Read public key from keyfile
-    let (n,d) = read (key) :: (Integer,Integer)                 -- convert key to a tuple of integers
+    -- pubKey <- openFile (optKeyFilepath opts) ReadMode           -- Open Keyfile
+    -- key <- hGetLine pubKey                                      -- Read public key from keyfile
+    -- let (n,d) = read (key) :: (Integer,Integer)                 -- convert key to a tuple of integers
 
     {- Signature part -}
-    signatureFile <- openFile (optSignature opts) ReadMode      -- Open Signature
-    signature <- hGetLine signatureFile                         -- Read signature
+    --  signatureFile <- openFile (optSignature opts) ReadMode      -- Open Signature
+    -- signature <- hGetLine signatureFile                         -- Read signature
 
-    {- Document part -}
-    document <- openFile (optDocFilepath opts) ReadMode         -- Open document
-    let content = hShow document                                -- Read document
-    -- let btsDocument   = fmap BSU.fromString content             -- Convert from strings to binary data
+    args <- getArgs
+    let hash = readFile' args
+    putStrLn $ (show hash)
 
-    {- Hash -}
-    -- let hashDigest = hash btsDocument :: Digest SHA384          -- Hash the document
-    -- let hashText = show hashDigest                              -- Hash as string
 
-    {- Decryption -}
-    -- let decryptSign = decryptText signature (n, d)              -- Decrypt signature with user's public key
-    -- let validation = verifySignature  hashText signature        -- Validate if the signature is correct
-    -- putStrLn validation                                         -- Write in stdout the result
-    hClose pubKey                                               -- Close the document Keyfile
-    hClose document
-    hClose signatureFile
+    -- hClose pubKey                                               -- Close the document Keyfile
+    -- hClose signatureFile
         
 

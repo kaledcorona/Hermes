@@ -359,6 +359,7 @@ executable hcryptomotor-verify
         text,
         system-filepath,
         memory,
+        containers,
         random,
         process,
         options,
@@ -396,8 +397,7 @@ test-suite hcryptomotor-test
         ScopedTypeVariables
 
     -- Test dependencies.
-    build-depends:    base ^>=4.14.3.0,
-    base ^>=4.14.3.0,
+    build-depends:
         base,
         rio,
         unliftio,
