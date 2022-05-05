@@ -30,8 +30,8 @@ import System.Random
 {- Returns the string (n,e) -}
 getPubKey :: (Integer, Integer) -> String
 getPubKey (p, q) =  show (n,e)
-	where n = getN (p,q)
-	      e = 3
+    where n = getN (p,q)
+          e = 3
 
 {- Returns the string (n,d) -}
 getPrvKey :: (Integer, Integer) -> String

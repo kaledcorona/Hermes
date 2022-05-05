@@ -1,64 +1,72 @@
 {- Import modules -}
+import           Control.Applicative
+import           Options
+import           Prelude
 import           System.IO
 import           RSALib
-import           Prelude
 import qualified Data.Text.IO                as TIO
 import qualified Data.Text                   as TS
-import qualified Data.Text.Lazy              as TL
-import qualified Data.ByteString             as BS
-import qualified Data.ByteString.Lazy.UTF8   as BLU  -- from utf8-string
+import qualified Data.Text.Encoding          (encodeUtf8)
+import           Data.Foldable               (forM_)
+import qualified Data.ByteString             as B
 import qualified Data.ByteString.UTF8        as BSU  -- from utf8-string
-import qualified Data.ByteString.Lazy        as BL
-import qualified Data.ByteArray              as BA
-import qualified Crypto.Hash                 as H
-import           Crypto.Hash.Algorithms
+import qualified Data.Map.Strict             as Map
+import           Data.Map.Strict             (Map)
 import           Crypto.Random.Types
-import qualified Crypto.Number.ModArithmetic as ModA
+import           Crypto.Hash                 (Digest, SHA384, hash)
+import           Crypto.Hash.Algorithms
+import qualified Crypto.Hash.IO              as HashIO
+import           System.Process              as P
 
 
-main :: IO ()
-main = do
 
-    -- Comment when not in testing
-    prvKey <- openFile "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/bins/rsa-prv.key" ReadMode
+{- Declare the options for the function -}
+data MainOptions = MainOptions
+    {
+        optKeyFilepath :: String
+    ,   optDocFilepath :: FilePath
+    }
 
-    -- UnComment for production
-    -- prvKey <- openFile "rsa-prv.key" ReadMode
-
-    {- Read the public key-}
-    key <- hGetLine prvKey
-
-    {- Read from stdin-}
-    contents <- getContents
-
-    {- Read public key and convert to tuple of Integers-}
-    let (n,d) = read (key) :: (Integer,Integer)
-
-    {- Convert string content to ByteString -}
-    let bsContents = BSU.fromString contents
-
-    {- Calculate the hash of the file -}
-    let hashcontent = hashWith384 bsContents
-
-    -- Verification of the hash
-    -- TIO.putStrLn $ TS.pack hashcontent
-
-    {- Encrypt the content of the digest with  private key-}
-    let encContents = encryptText contents (n,d)
-
-    {- Save the message and the signature of the message in a file -}
-    -- Comment this line when not testing 
-    writeFile ("/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/signature") (encContents)
-    -- uncomment when production
-    -- TIO.writeFile ("./signature") (T.pack encContents)
-    hClose prvKey
+{- Generate default configurations for opts -}
+instance Options MainOptions where
+    defineOptions = pure MainOptions
+        <*> simpleOption "key" "./rsa-prv.key"
+            "Pass the Filepath to user's public key"
+        <*> simpleOption "doc" "./document.pdf"
+            "Filepath to the Document"
         
+
 
 {- Returns a string of [Integer] representing the encrypted text -}
 encryptText :: String -> (Integer,Integer) -> String
 encryptText msg (n,e) = show encodedIntegers 
     where encodedIntegers = map (\x -> powerMod x e n ) $ encodeTextInt msg
 
-{- Returns the SHA384 of a file -}
-hashWith384 :: BS.ByteString -> String
-hashWith384 msg = show (H.hashWith H.SHA384 msg)
+
+{- Calculate hash of a file-}
+readFile' :: FilePath -> IO (Map (Digest SHA384) [FilePath])
+readFile' fp = do
+  bs <- B.readFile fp
+  let digest = hash bs -- notice lack of type signature :)
+  return $ Map.singleton digest [fp]
+
+main :: IO ()
+main = Options.runCommand $ \opts args -> do
+
+    {- Public key part -}
+    prvKey <- openFile (optKeyFilepath opts) ReadMode   -- Open Keyfile
+    key <- hGetLine prvKey                              -- Read private key from keyfile
+    let (n,d) = read (key) :: (Integer,Integer)         -- convert key to a tuple of integers
+
+
+    {- Hash document: Read Document and show digest-}
+    m <- Map.unionsWith (++) <$> mapM readFile' [(optDocFilepath opts)]
+    forM_ (Map.toList m) $ \(digest, files) ->
+        case files of
+            _ -> writeFile ("./signature.sig") (encryptText (show digest) (n,d))
+    
+
+    hClose prvKey 
+
+        
+

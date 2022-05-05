@@ -291,6 +291,7 @@ executable hcryptomotor-sign
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     default-extensions:
+        OverloadedStrings
         BangPatterns
         NumericUnderscores
         BinaryLiterals
@@ -305,20 +306,18 @@ executable hcryptomotor-sign
         unliftio,
         conduit,
         conduit-extra,
-        aeson,
-        aeson-pretty,
         attoparsec,
         attoparsec-binary,
         bytestring,
         tuple,
         cryptonite,
         text,
+        containers,
         system-filepath,
         memory,
         random,
         process,
-        optparse-generic,
-        optparse-applicative,
+        options,
         utf8-string,
         hcryptomotor
 
@@ -339,6 +338,7 @@ executable hcryptomotor-verify
     -- other-extensions:
     default-extensions:
         BangPatterns
+        OverloadedStrings
         NumericUnderscores
         BinaryLiterals
         NoImplicitPrelude
@@ -352,8 +352,6 @@ executable hcryptomotor-verify
         unliftio,
         conduit,
         conduit-extra,
-        aeson,
-        aeson-pretty,
         attoparsec,
         attoparsec-binary,
         bytestring,
@@ -362,10 +360,10 @@ executable hcryptomotor-verify
         text,
         system-filepath,
         memory,
+        containers,
         random,
         process,
-        optparse-applicative,
-        optparse-generic,
+        options,
         utf8-string,
         hcryptomotor
 
@@ -374,8 +372,6 @@ executable hcryptomotor-verify
 
     -- Base language which the package is written in.
     default-language: Haskell2010
-
-
     
 
 test-suite hcryptomotor-test
@@ -391,21 +387,35 @@ test-suite hcryptomotor-test
     -- The entrypoint to the test suite.
     main-is:          MyLibTest.hs
 
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    default-extensions:
+        BangPatterns
+        OverloadedStrings
+        NumericUnderscores
+        BinaryLiterals
+        DeriveGeneric
+        ScopedTypeVariables
+
     -- Test dependencies.
-    build-depends:    base ^>=4.14.3.0,
-    base ^>=4.14.3.0,
+    build-depends:
+        base,
         rio,
         unliftio,
         conduit,
         conduit-extra,
-        aeson,
-        aeson-pretty,
         attoparsec,
         attoparsec-binary,
-        text,
-        crypto-api ^>=0.13.1,
         bytestring,
-        curve25519 ^>=0.2.6,
+        tuple,
+        text,
+        memory,
         utf8-string,
+        optparse-generic,
+        cryptonite,
+        system-filepath,
+        optparse-generic,
+        optparse-applicative,
+        process,
         hcryptomotor
 

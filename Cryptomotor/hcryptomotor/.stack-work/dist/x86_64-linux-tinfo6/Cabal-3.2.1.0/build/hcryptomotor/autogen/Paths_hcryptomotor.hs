@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/bin"
-libdir     = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/lib/x86_64-linux-ghc-8.10.7/hcryptomotor-0.1.0.0-6VZcXY0XHuo4eHlOzksNKL-hcryptomotor"
+libdir     = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/lib/x86_64-linux-ghc-8.10.7/hcryptomotor-0.1.0.0-64cMIFAm74S8VJ1TrwPBTa-hcryptomotor"
 dynlibdir  = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/lib/x86_64-linux-ghc-8.10.7"
 datadir    = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/share/x86_64-linux-ghc-8.10.7/hcryptomotor-0.1.0.0"
 libexecdir = "/home/community/school/semestres/sem6/algebra/challenge/hermes/Cryptomotor/hcryptomotor/.stack-work/install/x86_64-linux-tinfo6/0ede982d3f8e41d7cefbca13c6f922878b5a782887477c6d0108f39e91a3b7a1/8.10.7/libexec/x86_64-linux-ghc-8.10.7/hcryptomotor-0.1.0.0"
